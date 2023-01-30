@@ -10,30 +10,6 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const Redirigir = useNavigate();
-
-  const Registrar = (e) => {
-    e.preventDefault();
-    createUserWithEmailAndPassword(auth, email, password)
-      .then((r) => {
-        {
-          Redirigir("/");
-        }
-      })
-      .catch((e) => {
-        if (e.code == "auth/invalid-email") {
-          alert("Email invalido");
-        }
-        if (e.code == "auth/weak-password") {
-          alert("Contraseña invalida");
-        }
-      });
-
-    {
-      document.getElementById("BorrarEmail").value = "";
-      document.getElementById("BorrarPass").value = "";
-    }
-  };
-
   const LoginUsuario = () => {
     signInWithEmailAndPassword(auth, email, password)
       .then((r) => {
@@ -53,7 +29,7 @@ const Login = () => {
       <h2 className="Titulo mt-5">Login</h2>
       <div className="col"></div>
       <div className="col">
-        <form className="form-group mt-3" onSubmit={Registrar}>
+        <form className="form-group mt-3">
           <input
             onChange={(e) => {
               setEmail(e.target.value);
@@ -72,11 +48,6 @@ const Login = () => {
             placeholder="Ingrese Contraseña"
             type="password"
           ></input>
-          <div className="d-grid mt-3">
-            <button className="btn btn-dark " type="submit" value="Registrar">
-              Registrar
-            </button>
-          </div>
         </form>
         <div className="d-grid mt-3">
           <button className="btn btn-success " onClick={LoginUsuario}>

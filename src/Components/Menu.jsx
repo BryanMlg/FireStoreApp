@@ -20,7 +20,7 @@ const Menu = () => {
   return (
     <div>
       <nav className="navbar-text navbar navbar-expand-lg navbar-dark bg-dark ">
-        <ul className="navbar-nav">
+        <ul className="navbar-nav" id="BarraNav">
           <li className="nav-item">
             <Link className="nav-link" to="/">
               Inicio
